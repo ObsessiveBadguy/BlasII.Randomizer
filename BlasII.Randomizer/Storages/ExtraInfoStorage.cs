@@ -1,5 +1,4 @@
 ﻿using BlasII.Randomizer.Models;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlasII.Randomizer.Storages;
@@ -9,46 +8,6 @@ namespace BlasII.Randomizer.Storages;
 /// </summary>
 public class ExtraInfoStorage
 {
-    // Zone names
-
-    private readonly Dictionary<string, string> _zoneNames = new()
-    {
-        { "Z01", "Repose of the Silent One" },
-        { "Z02", "Ravine of the High Stones" },
-        { "Z03", "Aqueduct of the Costales" },
-        { "Z04", "Sacred Entombments" },
-        { "Z05", "City of the Blessed Name" },
-        { "Z06", "Grilles and Ruins" },
-        { "Z07", "Palace of the Embroideries" },
-        { "Z08", "Choir of Thorns" },
-        { "Z09", "Crown of Towers" },
-        { "Z10", "Elevated Temples" },
-        { "Z11", "Basilica of Absent Faces" },
-        { "Z12", "Sunken Cathedral" },
-        { "Z13", "Two Moons" },
-        { "Z14", "Mother of Mothers" },
-        { "Z15", "Dreams of Incense" },
-        { "Z16", "The Severed Tower" },
-        { "Z17", "Streets of Wakes" },
-        { "Z18", "Crimson Rains" },
-        { "Z19", "Profundo Lamento" },
-        { "Z20", "Sea of Ink" },
-        { "Z21", "Labyrinth of Tides" },
-        { "Z23", "Beneath Her Sacred Grounds" },
-        { "Z24", "Garden of the High Choirs" },
-        { "Z27", "Icebound Mausoleum" },
-        { "Z28", "Santa Vigilia" },
-        { "SHO", "Shops" },
-    };
-
-    /// <summary>
-    /// Retrieves the name of a zone by the Id
-    /// </summary>
-    public bool GetZoneName(string zone, out string name)
-    {
-        return _zoneNames.TryGetValue(zone, out name);
-    }
-
     // Boss teleports
 
     private readonly BossTeleportInfo[] _bossTeleports =
@@ -89,6 +48,14 @@ public class ExtraInfoStorage
         new QuestBypassInfo("Z1421", "PR03", () => Main.Randomizer.ItemHandler.IsLocationCollected("Z1421.l1")),
         // Lullaby of the Shore
         new QuestBypassInfo("Z1906", "PR16", () => Main.Randomizer.ItemHandler.IsLocationCollected("Z1906.i1")),
+
+        // Honey Maiden
+        new QuestBypassInfo("Z0815", "FG34", () => false),
+        new QuestBypassInfo("Z0815", "FG35", () => false),
+        new QuestBypassInfo("Z0815", "FG36", () => Main.Randomizer.ItemHandler.IsLocationCollected("Z0815.i0")),
+        new QuestBypassInfo("Z0815", "FG37", () => false),
+        new QuestBypassInfo("Z0815", "FG38", () => false),
+        new QuestBypassInfo("Z0815", "FG39", () => false),
 
         // Cursed Letter #1
         new QuestBypassInfo("Z1326", "PR15", () => Main.Randomizer.ItemHandler.IsLocationCollected("Z1326.i0")),
